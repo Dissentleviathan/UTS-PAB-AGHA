@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">UTS Agha</string>
+    <string-array name="Array_jalurPendaftaran">
+        <item>Jalur Pendaftaran</item>
+        <item>Test Tertulis</item>
+        <item>Jalur Tanpa Test</item>
+        <item>Ujian Saringan Masuk</item>
+    </string-array>
+</resources>
