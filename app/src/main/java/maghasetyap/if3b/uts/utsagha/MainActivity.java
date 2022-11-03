@@ -11,59 +11,53 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-
 public class MainActivity extends AppCompatActivity {
-
-    EditText etNomorPendaftaran;
     EditText etNamaLengkap;
+    EditText etNomorPendaftaran;
     Button btnDaftar;
-    CheckBox cbKonfirmasi;
-    Spinner sppendaftaran;
+    CheckBox cbKonfirmasiPendaftaran;
+    Spinner spJalurPendaftaran;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etNomorPendaftaran = findViewById(R.id.et_NomorPendaftaran);
-        etNamaLengkap = findViewById(R.id.et_NamaLengkap);
-        btnDaftar = findViewById(R.id.btn_daftar);
-        cbKonfirmasi = findViewById(R.id.cb_Konfirmasi);
-        sppendaftaran = findViewById(R.id.sp_Pendaftaran);
+        etNomorPendaftaran = findViewById(R.id.et_Nomor_Pendaftaran);
+        etNamaLengkap = findViewById(R.id.et_Nama_Lengkap);
+        btnDaftar = findViewById(R.id.btn_Daftar);
+        cbKonfirmasiPendaftaran = findViewById(R.id.cb_Konfirmasi_Pendaftaran);
+        spJalurPendaftaran = findViewById(R.id.sp_Jalur_Pendaftaran);
 
-        btnDaftar.setOnClickListener(new View.OnClickListener()
-        {
+        btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                String Nomor =  etNomorPendaftaran.getText().toString();
-                String Nama = etNamaLengkap.getText().toString();
-                String Konfirmasi =  cbKonfirmasi.getText().toString();
-                String Pendaftaran = String.copyValueOf(sppendaftaran.getSelectedItem());
+            public void onClick(View view) {
+                String NamaLengkap = etNamaLengkap.getText().toString();
+                String NomorPendaftaran = etNomorPendaftaran.getText().toString();
+                String KonfirmasiPendaftaran = cbKonfirmasiPendaftaran.getText().toString();
+                String JalurPendaftaran = String.valueOf(spJalurPendaftaran.getSelectedItem());
 
-                if (Nama.trim().equals(""))
-                {
-                    etNamaLengkap.setError("Harus Diisi!");
+                if (NamaLengkap.trim().equals("")) {
+                    etNamaLengkap.setError("Nama Harus Diisi");
                 }
-                else if (Nomor.trim().equals(""))
-                {
-                    etNomorPendaftaran.setError("Harus Diisi!");
+                else if (NomorPendaftaran.trim().equals("")) {
+                    etNomorPendaftaran.setError("Nomor Pendaftaran Harus Diisi");
                 }
-                else if (!cbKonfirmasi.isChecked())
-                {
-                    Toast.makeText(MainActivity.this,"Harus Dicentang", Toast.LENGTH_SHORT).show();
+                else if (JalurPendaftaran.equalsIgnoreCase("Jalur Pendaftaran")) {
+                    Toast.makeText(MainActivity.this,"Harus dipilih!", Toast.LENGTH_SHORT).show();
                 }
-                else if (Pendaftaran.equalsIgnoreCase("Jalur Pendaftaran")){
-                    Toast.makeText(MainActivity.this, "Harus Dipilih", Toast.LENGTH_SHORT).show();
+                else if (!cbKonfirmasiPendaftaran.isChecked()) {
+                    Toast.makeText(MainActivity.this,"Harus dicentang!", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Intent daftar = new Intent(MainActivity.this,SecondActivity.class)
-                    daftar.putExtra("xnama", Nama);
-                    daftar.putExtra("xnomor", Nomor);
-                    daftar.putExtra("xconfirm", Konfirmasi);
-                    daftar.putExtra("xpendaftaran", Pendaftaran);
+                    Intent daftar = new Intent(MainActivity.this,SecondActivity.class);
+                    daftar.putExtra("xnama", NamaLengkap);
+                    daftar.putExtra("xnomor", NomorPendaftaran);
+                    daftar.putExtra("xconfirm",KonfirmasiPendaftaran);
+                    daftar.putExtra("xpendaftaran", JalurPendaftaran);
+                    startActivity(daftar);
                 }
             }
         });
-    }}
+    }
+}

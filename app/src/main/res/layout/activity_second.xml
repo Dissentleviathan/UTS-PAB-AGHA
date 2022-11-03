@@ -7,40 +7,43 @@
     tools:context=".SecondActivity">
 
     <TextView
-        android:id="@+id/tv_confirm"
+        android:id="@+id/tv_Konfirmasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="KONFIRMASI PENDAFTARAN"
-        android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-        android:textSize="20sp"/>
+        android:layout_marginTop="20dp"
+        android:text="KONFIRMASI PENDAFTARAN"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/tv_namalengkap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Error"
-        android:textSize="26sp"
-        android:layout_below="@id/tv_confirm"
-        android:layout_margin="16dp"/>
+        android:text="Eror"
+        android:textSize="20sp"
+        android:layout_below="@id/tv_Konfirmasi"
+        android:layout_margin="20dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/tv_Pendaftaran"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="26sp"
-        android:text="Error"
+        android:text="Eror"
+        android:textSize="20sp"
         android:layout_below="@id/tv_namalengkap"
-        android:layout_margin="16dp"/>
+        android:layout_margin="20dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/tv_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Error"
-        android:layout_below="@+id/tv_Pendaftaran"
-        android:textSize="26sp"
-        android:layout_margin="16dp"/>
+        android:text="Eror"
+        android:layout_below="@id/tv_Pendaftaran"
+        android:textSize="20sp"
+        android:layout_margin="16dp"
+        android:textStyle="bold"/>
 
 </RelativeLayout>

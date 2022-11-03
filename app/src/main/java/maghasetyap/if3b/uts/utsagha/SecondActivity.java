@@ -10,7 +10,6 @@ public class SecondActivity extends AppCompatActivity {
     TextView tvnama;
     TextView tvNomor;
     TextView tvpendaftaran;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,12 +22,12 @@ public class SecondActivity extends AppCompatActivity {
 
         tvNomor = findViewById(R.id.tv_Pendaftaran);
         Intent baru = getIntent();
-        String terimaNomor = terima.getStringExtra("xnomor");
+        String terimaNomor = baru.getStringExtra("xnomor");
         tvNomor.setText(terimaNomor);
 
         tvpendaftaran = findViewById(R.id.tv_tv);
         Intent lagi = getIntent();
-        String terimaKode = terima.getStringExtra("xpendaftaran");
+        String terimaKode = lagi.getStringExtra("xpendaftaran");
         tvpendaftaran.setText(terimaKode);
     }
 }
